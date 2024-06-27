@@ -4,24 +4,24 @@ function bumper({
   dpi = 72,
   nX = 6,
   nY = 6,
-  holeColor = "#0072B2",
-  edgeColor = "#000"
+  holeColor = "#000",
+  edgeColor = "#0072B2"
 }) {
   // mm to px
   const mm = (n) => n / 25.4 * dpi
 
   //// bumper dims ////
-  const w = mm(12)
-  const h = mm(8)
+  const w = mm(8.7)
+  const h = mm(4)
 
   //// stem hole dims ////
-  const holeW = mm(1.2)
-  const holeH = mm(3)
+  const holeW = mm(1.1)
+  const holeH = mm(2.9)
   const holeR = Math.min(holeW, holeH) * 0.25
   const holeD = mm(5.7)
 
   //// width of the tabs for holding parts in place ////
-  const tabW = mm(0.4)
+  const tabW = mm(0.3)
   const tabHalf = tabW / 2
 
   //// layout for the main svg file ////
