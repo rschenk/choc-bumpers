@@ -4,8 +4,8 @@ function bumper({
   dpi = 72,
   nX = 6,
   nY = 6,
-  holeColor = "#0072B2",
-  edgeColor = "#000"
+  holeColor = "#000",
+  edgeColor = "#0072B2"
 }) {
   // mm to px
   const mm = (n) => n / 25.4 * dpi
