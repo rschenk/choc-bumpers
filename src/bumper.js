@@ -4,7 +4,7 @@ function bumper({
   dpi = 72,
   nX = 6,
   nY = 6,
-  holeColor = "#000",
+  holeColor = "#00000",
   edgeColor = "#0072B2"
 }) {
   // mm to px
@@ -12,7 +12,7 @@ function bumper({
 
   //// bumper dims ////
   const w = mm(8.7)
-  const h = mm(4)
+  const h = mm(4.2)
 
   //// stem hole dims ////
   const holeW = mm(1.1)
