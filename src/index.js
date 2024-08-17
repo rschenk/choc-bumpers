@@ -1,4 +1,4 @@
-const { ambientBumper } = require("./bumper.js")
+const { ambientBumper, chocBumper } = require("./bumper.js")
 const fs = require("fs")
 
 const layouts = [
@@ -16,5 +16,8 @@ const filename = (prefix, {nX, nY, dpi}) => `${prefix}_bumper_${nX * nY}_keys@${
 
 layouts
   .flatMap((l) => dpis.map((d) => ({...l, ...d})))
-  .forEach((o) => fs.writeFileSync(filename("ambient", o), ambientBumper(o)))
+  .forEach((o) => {
+    fs.writeFileSync(filename("ambient", o), ambientBumper(o))
+    fs.writeFileSync(filename("choc", o), chocBumper(o))
+  })
 

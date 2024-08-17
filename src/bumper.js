@@ -7,13 +7,21 @@ const dims_mm = ({w, h}, dpi) => ({w: to_mm(dpi)(w), h: to_mm(dpi)(h)})
 
 function ambientBumper(opts) {
   const {dpi} = opts
-  const dims = dims_mm({w: 8.7, h: 4.2}, dpi)
+  //// bumper dims ////
+  const dims = dims_mm({
+    w: 8.7,
+    h: 4.2
+  }, dpi)
   return bumper({...opts, ...dims})
 }
 
 function chocBumper(opts) {
   const {dpi} = opts
-  const dims = dims_mm({w: 8.7, h: 4.2}, dpi)
+  //// bumper dims ////
+  const dims = dims_mm({
+    w: 12,
+    h: 8
+  }, dpi)
   return bumper({...opts, ...dims})
 }
 
