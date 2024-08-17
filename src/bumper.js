@@ -31,7 +31,7 @@ function bumper({
   nY = 6,
   w, // bumper width
   h, // bumper height
-  holeColor = "#00000",
+  holeColor = "#000000",
   edgeColor = "#0072B2"
 }) {
   // curry mm function
