@@ -1,27 +1,50 @@
-module.exports = { bumper }
+module.exports = { ambientBumper, chocBumper }
+
+// mm to px
+const to_mm = (dpi) => (n) => n / 25.4 * dpi
+
+const dims_mm = ({w, h}, dpi) => ({w: to_mm(dpi)(w), h: to_mm(dpi)(h)})
+
+function ambientBumper(opts) {
+  const {dpi} = opts
+  //// bumper dims ////
+  const dims = dims_mm({
+    w: 8.7,
+    h: 4.2
+  }, dpi)
+  return bumper({...opts, ...dims})
+}
+
+function chocBumper(opts) {
+  const {dpi} = opts
+  //// bumper dims ////
+  const dims = dims_mm({
+    w: 12,
+    h: 8
+  }, dpi)
+  return bumper({...opts, ...dims})
+}
 
 function bumper({
   dpi = 72,
   nX = 6,
   nY = 6,
-  holeColor = "#000",
+  w, // bumper width
+  h, // bumper height
+  holeColor = "#000000",
   edgeColor = "#0072B2"
 }) {
-  // mm to px
-  const mm = (n) => n / 25.4 * dpi
-
-  //// bumper dims ////
-  const w = mm(12)
-  const h = mm(8)
+  // curry mm function
+  const mm = to_mm(dpi)
 
   //// stem hole dims ////
-  const holeW = mm(1.2)
-  const holeH = mm(3)
+  const holeW = mm(1.1)
+  const holeH = mm(2.9)
   const holeR = Math.min(holeW, holeH) * 0.25
   const holeD = mm(5.7)
 
   //// width of the tabs for holding parts in place ////
-  const tabW = mm(0.4)
+  const tabW = mm(0.3)
   const tabHalf = tabW / 2
 
   //// layout for the main svg file ////
