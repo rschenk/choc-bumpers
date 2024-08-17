@@ -1,18 +1,33 @@
-module.exports = { bumper }
+module.exports = { ambientBumper, chocBumper }
+
+// mm to px
+const to_mm = (dpi) => (n) => n / 25.4 * dpi
+
+const dims_mm = ({w, h}, dpi) => ({w: to_mm(dpi)(w), h: to_mm(dpi)(h)})
+
+function ambientBumper(opts) {
+  const {dpi} = opts
+  const dims = dims_mm({w: 8.7, h: 4.2}, dpi)
+  return bumper({...opts, ...dims})
+}
+
+function chocBumper(opts) {
+  const {dpi} = opts
+  const dims = dims_mm({w: 8.7, h: 4.2}, dpi)
+  return bumper({...opts, ...dims})
+}
 
 function bumper({
   dpi = 72,
   nX = 6,
   nY = 6,
+  w, // bumper width
+  h, // bumper height
   holeColor = "#00000",
   edgeColor = "#0072B2"
 }) {
-  // mm to px
-  const mm = (n) => n / 25.4 * dpi
-
-  //// bumper dims ////
-  const w = mm(8.7)
-  const h = mm(4.2)
+  // curry mm function
+  const mm = to_mm(dpi)
 
   //// stem hole dims ////
   const holeW = mm(1.1)
