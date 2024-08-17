@@ -8,6 +8,8 @@ const layouts = [
   {nX: 6, nY: 6},
   // 42 Keys
   {nX: 6, nY: 7},
+  // 56 Keys
+  {nX: 7, nY: 8},
 ]
 
 const dpis = [{dpi: 72}, {dpi: 96}]
